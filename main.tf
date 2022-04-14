@@ -1,5 +1,5 @@
 locals {
-  module_version = jsondecode(file("version.json")).version
+  module_version = jsondecode(file("${path.module}/version.json")).version
   time_stamp     = timestamp()
 }
 

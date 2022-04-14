@@ -25,7 +25,7 @@ variable "bucket_acl" {
 
 variable "force_destroy" {
   type        = bool
-  description = "FOrce the destruction of the bucket regardless of the bucket's contents"
+  description = "Force the destruction of the bucket regardless of the bucket's contents"
   default     = false
 }
 

@@ -15,6 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # - name: Check Version
-      #   run: |
-      #     ./bin/version_check.sh
+      - name: Check Version
+        run: |
+          ./bin/version_check.sh

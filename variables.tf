@@ -37,7 +37,7 @@ variable "configure_as_website" {
 }
 
 variable "website_config" {
-  type = map({
+  type = object({
     index_document = string
     error_document = string
   })

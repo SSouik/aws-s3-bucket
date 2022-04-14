@@ -16,31 +16,18 @@ resource "aws_s3_bucket" "main" {
     Module        = "aws-s3-bucket"
     ModuleVersion = local.module_version
   })
+
+  lifecycle {
+    ignore_changes = [
+      tags["Created"]
+    ]
+  }
 }
 
 # Bucket ACL
 resource "aws_s3_bucket_acl" "main" {
   bucket = aws_s3_bucket.main.id
   acl    = var.bucket_acl
-}
-
-# Bucket Lifecycle
-resource "aws_s3_bucket_lifecycle_configuration" "main" {
-  bucket = aws_s3_bucket.main.id
-
-  rule {
-    id = "rule-tags"
-
-    filter {
-      and {
-        tags = {
-          Created = local.time_stamp
-        }
-      }
-    }
-
-    status = "Enabled"
-  }
 }
 
 # Website config

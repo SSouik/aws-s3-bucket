@@ -5,6 +5,19 @@ on:
     branches:
       - 'main'
 jobs:
+  commit-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        run: |
+          # Manually check out code since commit linting works better this way
+          git clone https://github.com/SSouik/aws-s3-bucket.git .
+          git fetch
+          git checkout ${GITHUB_HEAD_REF}
+      - name: Lint pull request commits
+        run: |
+          ./bin/commit-lint --pull-request
+      
   validate:
     runs-on: ubuntu-latest
     steps:

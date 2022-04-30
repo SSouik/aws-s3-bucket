@@ -27,3 +27,18 @@ output "website_domain" {
   value       = aws_s3_bucket.main.website_domain
   description = "The domain name of the S3 Bucket website"
 }
+
+# Log Bucket
+output "log_bucket_id" {
+  value = {
+    for k, bucket in aws_s3_bucket.main_log_bucket : k => bucket.id
+  }
+  description = "The ID of the created S3 log bucket (Found at index 0)"
+}
+
+output "log_bucket_arn" {
+  value = {
+    for k, bucket in aws_s3_bucket.main_log_bucket : k => bucket.arn
+  }
+  description = "The ARN of the created S3 log bucket (Found at index 0)"
+}

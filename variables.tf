@@ -47,3 +47,16 @@ variable "website_config" {
     error_document = "error.html"
   }
 }
+
+# S3 Logging config
+variable "log_bucket_name" {
+  type        = string
+  description = "Name of the bucket to set up as the main bucket's logging destination"
+  default     = null
+}
+
+variable "log_prefix" {
+  type        = string
+  description = "Prefix for the bucket's logs"
+  default     = "logs/"
+}

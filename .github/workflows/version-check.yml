@@ -17,4 +17,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Check Version
         run: |
-          ./bin/version_check.sh
+          ./bin/version-check \
+            --file version.json \
+            --org SSouik \
+            --repo aws-s3-bucket

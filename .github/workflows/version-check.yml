@@ -16,12 +16,7 @@ jobs:
     container:
       image: ssouik/ubuntu-git:latest
     steps:
-      - name: Checkout code
-        run: |
-          git clone https://github.com/SSouik/aws-s3-bucket.git code
-          cd code
-          git fetch
-          git checkout ${GITHUB_HEAD_REF}
+      - uses: actions/checkout@v2
       - name: Check Version
         run: |
           version-check \
